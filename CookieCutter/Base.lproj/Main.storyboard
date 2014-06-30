@@ -1,25 +1,121 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6162" systemVersion="14A238h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aLE-Fi-eBr">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6160"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="x5R-vJ-q0I">
+            <objects>
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="aLE-Fi-eBr" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k7E-76-bhb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="38m-Rp-zf8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nQv-Jo-AGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="-42"/>
+        </scene>
+        <!--View Controller - Cookie Cutter-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the '+' in the corner!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCT-fB-MLh">
+                                <rect key="frame" x="67" y="242" width="187" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-OQ-Sbi">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2Pu-YX-jSE"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oQf-r6-y74"/>
+                                    <barButtonItem style="plain" id="qP8-UC-lvi">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="csJ-b7-5o4">
+                                            <rect key="frame" x="43" y="11" width="233" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="None"/>
+                                                <segment title="Cookie"/>
+                                                <segment title="Star"/>
+                                                <segment title="Heart"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="vXV-f5-cOX"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="b7x-w7-hN6"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="e2l-gA-cyz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <subviews>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
+                                        <rect key="frame" x="0.0" y="3" width="320" height="454"/>
+                                    </imageView>
+                                </subviews>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Frv-7y-5ue"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="MCT-fB-MLh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="242" id="6lD-TC-BEE"/>
+                            <constraint firstAttribute="trailing" secondItem="Faq-OQ-Sbi" secondAttribute="trailing" id="AtY-Ve-ieg"/>
+                            <constraint firstAttribute="bottom" secondItem="Faq-OQ-Sbi" secondAttribute="bottom" id="CHU-n6-uxQ"/>
+                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="centerX" secondItem="MCT-fB-MLh" secondAttribute="centerX" id="RT9-pf-nME"/>
+                            <constraint firstItem="MCT-fB-MLh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZTD-ay-1BU"/>
+                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sjv-OB-sA4"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Cookie Cutter" id="4cC-Sj-XXD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="MQB-bp-DCt">
+                            <connections>
+                                <action selector="shareImage:" destination="BYZ-38-t0r" id="3pD-7J-EgL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gpl-Lz-pum">
+                            <connections>
+                                <action selector="addPictureButtonSelected:" destination="BYZ-38-t0r" id="BA1-Mb-tId"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cookieControl" destination="csJ-b7-5o4" id="87h-be-w50"/>
+                        <outlet property="introLabel" destination="MCT-fB-MLh" id="sJl-Tf-l2c"/>
+                        <outlet property="photoImageView" destination="c6q-1J-oac" id="qb5-F8-vMn"/>
+                        <outlet property="scrollView" destination="e2l-gA-cyz" id="zA3-B8-ZYj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="549" y="-42"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
