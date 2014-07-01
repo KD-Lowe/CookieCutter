@@ -14,7 +14,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *introLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *cookieControl;
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -22,10 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // set up image zooming in the scroll view
-//    self.scrollView.minimumZoomScale = 1.0;
-//    self.scrollView.maximumZoomScale = 10.0;
-//    self.scrollView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +47,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:^{
         self.photoImageView.image = info[UIImagePickerControllerEditedImage];
-//        self.scrollView.contentSize = self.photoImageView.frame.size;
+//        self.scrollView.contentSize = CGSizeMake(self.photoImageView.image.size.width * 2.0f, self.photoImageView.image.size.height);
     }];
 }
 
@@ -83,16 +78,16 @@
 
 - (void)removeMask {
     self.photoImageView.layer.mask = nil;
-    self.scrollView.layer.mask = nil;
+//    self.scrollView.layer.mask = nil;
     self.view.layer.mask = nil;
 
 }
 
 - (void)addHeartMaskToImage {
-    UIBezierPath *bezzie = [CookieMaskView heartShape:self.scrollView.frame];
+    UIBezierPath *bezzie = [CookieMaskView heartShape:self.photoImageView.frame];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
-    [self.scrollView.layer setMask:shapeLayer];
+    [self.photoImageView.layer setMask:shapeLayer];
     
     //    CookieMaskView *cookieMask = [[CookieMaskView alloc] initWithFrame:self.photoImageView.frame];
     //or make it as [imageview.layer setMask:shapeLayer];
@@ -116,7 +111,7 @@
     UIBezierPath *bezzie = [CookieMaskView starShape:self.photoImageView.frame];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
-    [self.scrollView.layer setMask:shapeLayer];
+    [self.photoImageView.layer setMask:shapeLayer];
 }
 
 - (void)addCookieMaskToImage {
@@ -124,7 +119,7 @@
     UIBezierPath *bezzie = [UIBezierPath bezierPathWithOvalInRect:path];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
-    [self.scrollView.layer setMask:shapeLayer];
+    [self.photoImageView.layer setMask:shapeLayer];
 }
 
 #pragma mark - Sharing image
