@@ -7,14 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "CookieMaskView.h"
+#import "CookieCutterMasks.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) IBOutlet UIButton *pictureButton;
 @property (nonatomic, strong) IBOutlet UILabel *introLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *cookieControl;
-
 @end
 
 @implementation ViewController
@@ -84,21 +82,21 @@
 }
 
 - (void)addHeartMaskToImage {
-    UIBezierPath *bezzie = [CookieMaskView bezierPathForHeartShapeInRect:self.photoImageView.bounds];
+    UIBezierPath *bezzie = [CookieCutterMasks bezierPathForHeartShapeInRect:self.photoImageView.bounds];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
     [self.photoImageView.layer setMask:shapeLayer];
 }
 
 - (void)addStarMaskToImage {
-    UIBezierPath *bezzie = [CookieMaskView bezierPathForStarShapeInRect:self.photoImageView.bounds];
+    UIBezierPath *bezzie = [CookieCutterMasks bezierPathForStarShapeInRect:self.photoImageView.bounds];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
     [self.photoImageView.layer setMask:shapeLayer];
 }
 
 - (void)addCookieMaskToImage {
-    UIBezierPath *bezzie = [CookieMaskView bezierPathForCircleShapeInRect:self.photoImageView.bounds];
+    UIBezierPath *bezzie = [CookieCutterMasks bezierPathForCircleShapeInRect:self.photoImageView.bounds];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
     [self.photoImageView.layer setMask:shapeLayer];

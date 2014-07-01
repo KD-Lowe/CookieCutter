@@ -30,9 +30,9 @@
 // THE SOFTWARE.
 
 
-#import "CookieMaskView.h"
+#import "CookieCutterMasks.h"
 
-@implementation CookieMaskView
+@implementation CookieCutterMasks
 
 + (UIBezierPath *)bezierPathForHeartShapeInRect:(CGRect)originalFrame
 {
@@ -40,15 +40,15 @@
     
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
     
-    // Path starts in the center point of the heart shape (the bottom of the (V))
+    // Path starts at the top point of the right part of the heart
     [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.742 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.049 * CGRectGetHeight(frame)))];
     
-    // Move up to the top of the right part of the heart
+    // Move down to the center point of the heart shape (the bottom of the (V))
     [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.500 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.241 * CGRectGetHeight(frame)))
                   controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.647 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.050 * CGRectGetHeight(frame)))
                   controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.550 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.112 * CGRectGetHeight(frame)))];
     
-    // Move over to the top of the left part of the heart (effectively filling in the 'gap' at the top of the (V))
+    // Move up to the top of the left part of the heart (effectively outlineing in the 'gap' at the top of the (V))
     [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.330 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.064 * CGRectGetHeight(frame)))
                   controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.460 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.147 * CGRectGetHeight(frame)))
                   controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.398 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.089 * CGRectGetHeight(frame)))];
@@ -141,7 +141,7 @@
     CGFloat minSize = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame));
     
     // Make a new frame out of the original frame.  Set X, Y to the center and use width, height from shortest side (caluclated above)
-    CGRect bestSize =  CGRectMake(CGRectGetWidth(frame)/2 - minSize/2, CGRectGetHeight(frame)/2 - minSize/2, minSize, minSize);
+    CGRect bestSize =  CGRectMake(CGRectGetWidth(frame)/2.0f - minSize/2.0f, CGRectGetHeight(frame)/2.0f - minSize/2.0f, minSize, minSize);
     
     return bestSize;
     

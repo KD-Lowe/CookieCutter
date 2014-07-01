@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CookieMaskView : UIView
+@interface CookieCutterMasks : UIView
 + (UIBezierPath *)bezierPathForHeartShapeInRect:(CGRect)originalFrame;
 + (UIBezierPath *)bezierPathForStarShapeInRect:(CGRect)originalFrame;
 + (UIBezierPath *)bezierPathForCircleShapeInRect:(CGRect)originalFrame;
