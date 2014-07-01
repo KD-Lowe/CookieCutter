@@ -33,17 +33,15 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the '+' in the corner!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCT-fB-MLh">
-                                <rect key="frame" x="67" y="219" width="187" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-OQ-Sbi">
                                 <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="2Pu-YX-jSE"/>
+                                    <constraint firstAttribute="height" constant="44" id="bPp-Dj-SYB"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oQf-r6-y74"/>
@@ -66,29 +64,25 @@
                                 </items>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="e2l-gA-cyz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <subviews>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
-                                        <rect key="frame" x="0.0" y="3" width="320" height="454"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Frv-7y-5ue"/>
-                                </connections>
-                            </scrollView>
+                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the '+' in the corner!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCT-fB-MLh">
+                                <rect key="frame" x="50" y="211" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MCT-fB-MLh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="219" id="6lD-TC-BEE"/>
-                            <constraint firstAttribute="trailing" secondItem="Faq-OQ-Sbi" secondAttribute="trailing" id="AtY-Ve-ieg"/>
-                            <constraint firstAttribute="bottom" secondItem="Faq-OQ-Sbi" secondAttribute="bottom" id="CHU-n6-uxQ"/>
-                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="centerX" secondItem="MCT-fB-MLh" secondAttribute="centerX" id="RT9-pf-nME"/>
-                            <constraint firstItem="MCT-fB-MLh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-22.5" id="ZTD-ay-1BU"/>
-                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sjv-OB-sA4"/>
+                            <constraint firstAttribute="bottom" secondItem="Faq-OQ-Sbi" secondAttribute="bottom" id="CGG-eY-G6k"/>
+                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="leading" secondItem="c6q-1J-oac" secondAttribute="leading" id="KYW-tn-G8c"/>
+                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="top" secondItem="c6q-1J-oac" secondAttribute="bottom" id="S0o-1K-gqB"/>
+                            <constraint firstItem="MCT-fB-MLh" firstAttribute="centerX" secondItem="Faq-OQ-Sbi" secondAttribute="centerX" id="YLQ-Gr-KoD"/>
+                            <constraint firstItem="MCT-fB-MLh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="Zlz-tb-V86"/>
+                            <constraint firstItem="c6q-1J-oac" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="baw-SW-XfD"/>
+                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ffh-Af-pJi"/>
+                            <constraint firstAttribute="trailing" secondItem="Faq-OQ-Sbi" secondAttribute="trailing" id="mfM-bc-KcW"/>
+                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="trailing" secondItem="c6q-1J-oac" secondAttribute="trailing" id="otk-1I-TB6"/>
+                            <constraint firstAttribute="centerY" secondItem="MCT-fB-MLh" secondAttribute="centerY" constant="30.5" id="rRm-fN-chV"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -108,12 +102,11 @@
                         <outlet property="cookieControl" destination="csJ-b7-5o4" id="87h-be-w50"/>
                         <outlet property="introLabel" destination="MCT-fB-MLh" id="sJl-Tf-l2c"/>
                         <outlet property="photoImageView" destination="c6q-1J-oac" id="qb5-F8-vMn"/>
-                        <outlet property="scrollView" destination="e2l-gA-cyz" id="zA3-B8-ZYj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="-42"/>
+            <point key="canvasLocation" x="534" y="-42"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
