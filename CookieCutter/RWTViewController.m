@@ -6,16 +6,18 @@
 //  Copyright (c) 2014 Chris Lowe. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "CookieCutterMasks.h"
+#import "RWTViewController.h"
+#import "RWTCookieCutterMasks.h"
 
-@interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
-@property (nonatomic, strong) IBOutlet UILabel *introLabel;
-@property (nonatomic, strong) IBOutlet UIImageView *photoImageView;
-@property (nonatomic, strong) IBOutlet UISegmentedControl *cookieControl;
+@interface RWTViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (strong, nonatomic) IBOutlet UILabel *introLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *cookieControl;
+
 @end
 
-@implementation ViewController
+@implementation RWTViewController
 
 #pragma mark - Lifecycle
 
@@ -31,7 +33,7 @@
 #pragma mark - Orientation Change
 
 // On rotation, have the mask re-applied to account for the change in width/height sizes
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
   if (self.photoImageView.image) {
     [self segmentControlAction:nil];
   }
@@ -47,48 +49,39 @@
                       cancelButtonTitle:@"OK"
                       otherButtonTitles: nil] show];
   } else {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:NULL];
+    UIImagePickerController *photoPicker = [[UIImagePickerController alloc] init];
+    photoPicker.delegate = self;
+    photoPicker.allowsEditing = YES;
+    photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:photoPicker animated:YES completion:NULL];
   }
 }
 
 - (IBAction)segmentControlAction:(id)sender
 {
   switch(self.cookieControl.selectedSegmentIndex) {
-    case 0: {
+    case 0:
       [self removeMask];
       break;
-    }
-    case 1: {
+    case 1:
       [self addCookieMaskToImage];
       break;
-    }
-    case 2: {
+    case 2:
       [self addStarMaskToImage];
       break;
-    }
-    case 3: {
+    case 3:
       [self addHeartMaskToImage];
       break;
-    }
-    default: {
+    default:
       break;
-    }
   }
 }
 
 - (IBAction)shareImage:(id)sender {
   UIImage *imageToSave = [self currentMaskedImage];
   
-  
-  NSString *shareText = [NSString stringWithFormat:@"Check out this picture I made in Cookie Cutter!"];
-  NSArray *items   = [NSArray arrayWithObjects:
-                      shareText,
-                      imageToSave,
-                      nil];
+  NSString *shareText = @"Check out this picture I made in Cookie Cutter!";
+  NSArray *items   = @[shareText,imageToSave];
   
   UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
   [activityViewController setValue:shareText forKey:@"subject"];
@@ -99,23 +92,23 @@
 #pragma mark - Private
 
 - (void)addHeartMaskToImage {
-  UIBezierPath *bezzie = [CookieCutterMasks bezierPathForHeartShapeInRect:self.photoImageView.bounds];
+  UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForHeartShapeInRect:self.photoImageView.frame];
   CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-  shapeLayer.path = bezzie.CGPath;
+  shapeLayer.path = bezle.CGPath;
   [self.photoImageView.layer setMask:shapeLayer];
 }
 
 - (void)addStarMaskToImage {
-  UIBezierPath *bezzie = [CookieCutterMasks bezierPathForStarShapeInRect:self.photoImageView.bounds];
+  UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForStarShapeInRect:self.photoImageView.frame];
   CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-  shapeLayer.path = bezzie.CGPath;
+  shapeLayer.path = bezle.CGPath;
   [self.photoImageView.layer setMask:shapeLayer];
 }
 
 - (void)addCookieMaskToImage {
-  UIBezierPath *bezzie = [CookieCutterMasks bezierPathForCircleShapeInRect:self.photoImageView.bounds];
+  UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForCircleShapeInRect:self.photoImageView.frame];
   CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-  shapeLayer.path = bezzie.CGPath;
+  shapeLayer.path = bezle.CGPath;
   [self.photoImageView.layer setMask:shapeLayer];
 }
 

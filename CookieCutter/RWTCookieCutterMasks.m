@@ -30,9 +30,9 @@
 // THE SOFTWARE.
 
 
-#import "CookieCutterMasks.h"
+#import "RWTCookieCutterMasks.h"
 
-@implementation CookieCutterMasks
+@implementation RWTCookieCutterMasks
 
 #pragma mark - Public
 
@@ -40,7 +40,7 @@
 {
   CGRect frame = [self sizeToFitOriginalFrame:originalFrame];
   
-  UIBezierPath* bezierPath = [UIBezierPath bezierPath];
+  UIBezierPath *bezierPath = [UIBezierPath bezierPath];
   
   // Path starts at the top point of the right part of the heart
   [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.742 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.049 * CGRectGetHeight(frame)))];
@@ -102,7 +102,7 @@
 {
   CGRect frame = [self sizeToFitOriginalFrame:originalFrame];
   
-  UIBezierPath* bezierPath = [UIBezierPath bezierPath];
+  UIBezierPath *bezierPath = [UIBezierPath bezierPath];
   // Path starts at the tip of the top point
   [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.500 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.050 * CGRectGetHeight(frame)))];
   // Move down the right side of the top point

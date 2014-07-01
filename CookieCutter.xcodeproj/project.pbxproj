@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		A22AA4D4195D14E70065301E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A22AA4D3195D14E70065301E /* main.m */; };
 		A22AA4D7195D14E70065301E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A22AA4D6195D14E70065301E /* AppDelegate.m */; };
-		A22AA4DA195D14E70065301E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22AA4D9195D14E70065301E /* ViewController.m */; };
+		A22AA4DA195D14E70065301E /* RWTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A22AA4D9195D14E70065301E /* RWTViewController.m */; };
 		A22AA4DD195D14E70065301E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A22AA4DB195D14E70065301E /* Main.storyboard */; };
 		A22AA4DF195D14E70065301E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A22AA4DE195D14E70065301E /* Images.xcassets */; };
 		A22AA4EB195D14E70065301E /* CookieCutterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A22AA4EA195D14E70065301E /* CookieCutterTests.m */; };
-		A2DD8A3E1960B9FC00B87E48 /* CookieCutterMasks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DD8A3D1960B9FC00B87E48 /* CookieCutterMasks.m */; };
+		A2DD8A3E1960B9FC00B87E48 /* RWTCookieCutterMasks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DD8A3D1960B9FC00B87E48 /* RWTCookieCutterMasks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,15 +32,15 @@
 		A22AA4D3195D14E70065301E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A22AA4D5195D14E70065301E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A22AA4D6195D14E70065301E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A22AA4D8195D14E70065301E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A22AA4D9195D14E70065301E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A22AA4D8195D14E70065301E /* RWTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTViewController.h; sourceTree = "<group>"; };
+		A22AA4D9195D14E70065301E /* RWTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTViewController.m; sourceTree = "<group>"; };
 		A22AA4DC195D14E70065301E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A22AA4DE195D14E70065301E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A22AA4E4195D14E70065301E /* CookieCutterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookieCutterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A22AA4E9195D14E70065301E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A22AA4EA195D14E70065301E /* CookieCutterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CookieCutterTests.m; sourceTree = "<group>"; };
-		A2DD8A3C1960B9FC00B87E48 /* CookieCutterMasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieCutterMasks.h; sourceTree = "<group>"; };
-		A2DD8A3D1960B9FC00B87E48 /* CookieCutterMasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieCutterMasks.m; sourceTree = "<group>"; };
+		A2DD8A3C1960B9FC00B87E48 /* RWTCookieCutterMasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTCookieCutterMasks.h; sourceTree = "<group>"; };
+		A2DD8A3D1960B9FC00B87E48 /* RWTCookieCutterMasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWTCookieCutterMasks.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +84,11 @@
 			children = (
 				A22AA4D5195D14E70065301E /* AppDelegate.h */,
 				A22AA4D6195D14E70065301E /* AppDelegate.m */,
-				A22AA4D8195D14E70065301E /* ViewController.h */,
-				A22AA4D9195D14E70065301E /* ViewController.m */,
+				A22AA4D8195D14E70065301E /* RWTViewController.h */,
+				A22AA4D9195D14E70065301E /* RWTViewController.m */,
 				A22AA4DB195D14E70065301E /* Main.storyboard */,
-				A2DD8A3C1960B9FC00B87E48 /* CookieCutterMasks.h */,
-				A2DD8A3D1960B9FC00B87E48 /* CookieCutterMasks.m */,
+				A2DD8A3C1960B9FC00B87E48 /* RWTCookieCutterMasks.h */,
+				A2DD8A3D1960B9FC00B87E48 /* RWTCookieCutterMasks.m */,
 				A22AA4DE195D14E70065301E /* Images.xcassets */,
 				A22AA4D1195D14E70065301E /* Supporting Files */,
 			);
@@ -220,8 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2DD8A3E1960B9FC00B87E48 /* CookieCutterMasks.m in Sources */,
-				A22AA4DA195D14E70065301E /* ViewController.m in Sources */,
+				A2DD8A3E1960B9FC00B87E48 /* RWTCookieCutterMasks.m in Sources */,
+				A22AA4DA195D14E70065301E /* RWTViewController.m in Sources */,
 				A22AA4D7195D14E70065301E /* AppDelegate.m in Sources */,
 				A22AA4D4195D14E70065301E /* main.m in Sources */,
 			);
