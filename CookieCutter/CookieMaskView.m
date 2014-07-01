@@ -6,77 +6,145 @@
 //  Copyright (c) 2014 Chris Lowe. All rights reserved.
 //
 
+// Adapted from DPMeterView - https://github.com/dulaccc/DPMeterView
+// Available under MIT license
+
+// Copyright (c) 2013 Pierre Dulac (http:dulaccc.me/)
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
+
 #import "CookieMaskView.h"
 
 @implementation CookieMaskView
 
-- (instancetype)initWithFrame:(CGRect)frame
++ (UIBezierPath *)bezierPathForHeartShapeInRect:(CGRect)originalFrame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        self.opaque = NO;
-        self.backgroundColor = [UIColor clearColor];
-    }
-    return self;
-}
-
-//- (void)drawRect:(CGRect)rect
-//{
-//    // Create a new rect with some padding
-//    // + create a circle from this new rect:
-//    CGRect box = CGRectInset(self.bounds, self.bounds.size.width * 0.1f, self.bounds.size.height * 0.1f);
-////    UIBezierPath *ballBezierPath = [self heartShape:self.bounds];
-//    [[UIColor whiteColor] setStroke];
-//    [ballBezierPath stroke];
-//    [ballBezierPath fill];
-//}
-
-+ (UIBezierPath *)heartShape:(CGRect)originalFrame
-{
-    CGRect frame = [self maximumSquareFrameThatFits:originalFrame];
+    CGRect frame = [self sizeToFitOriginalFrame:originalFrame];
     
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
-    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.74182 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.04948 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.49986 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.24129 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.64732 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05022 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.55044 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.11201 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.33067 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.06393 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.46023 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.14682 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.39785 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.08864 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.25304 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05011 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.30516 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05454 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.27896 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.04999 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.00841 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.36081 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.12805 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05067 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.00977 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.15998 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.29627 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.70379 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.00709 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.55420 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.18069 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.62648 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.50061 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.92498 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.40835 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.77876 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.48812 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.88133 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.70195 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.70407 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.50990 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.88158 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.59821 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.77912 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.99177 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.35870 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.81539 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.62200 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.99308 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.55208 * CGRectGetHeight(frame))];
-    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.74182 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.04948 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.99040 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.15672 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.86824 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.04848 * CGRectGetHeight(frame))];
+    
+    // Path starts in the center point of the heart shape (the bottom of the (V))
+    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.742 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.049 * CGRectGetHeight(frame)))];
+    
+    // Move up to the top of the right part of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.500 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.241 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.647 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.050 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.550 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.112 * CGRectGetHeight(frame)))];
+    
+    // Move over to the top of the left part of the heart (effectively filling in the 'gap' at the top of the (V))
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.330 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.064 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.460 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.147 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.398 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.089 * CGRectGetHeight(frame)))];
+    
+    // Move down to the outter (widest) point of the left side of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.253 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.050 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.305 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.055 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.279 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.050 * CGRectGetHeight(frame)))];
+    
+    // Move down to the mid point of the left sweeping curve of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.008 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.361 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.128 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.051 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.010 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.160 * CGRectGetHeight(frame)))];
+    
+    // Move down to the bottom point of the left sweeping curve of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.296 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.704 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.007 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.554 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.180 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.627 * CGRectGetHeight(frame)))];
+
+    // Move down to the tip of the bottom of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.501 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.925 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.408 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.779 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.488 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.881 * CGRectGetHeight(frame)))];
+    
+    // Move up to the bottom point of the right sweeping curve of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.702 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.704 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.510 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.882 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.600 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.779 * CGRectGetHeight(frame)))];
+    
+    // Move up to the mid point of the right sweeping curve of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.992 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.359 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.815 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.622 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.993 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.552 * CGRectGetHeight(frame)))];
+    
+    // Move up to the outter (widest) point on the right side of the heart
+    [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.742 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.050 * CGRectGetHeight(frame)))
+                  controlPoint1: CGPointMake(CGRectGetMinX(frame) + (0.990 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.157 * CGRectGetHeight(frame)))
+                  controlPoint2: CGPointMake(CGRectGetMinX(frame) + (0.868 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.048 * CGRectGetHeight(frame)))];
+
+    // Move up to connect the outter point to the top right part of the heart
     [bezierPath closePath];
+    
     bezierPath.miterLimit = 4;
     
     return bezierPath;
 }
 
-+ (UIBezierPath *)starShape:(CGRect)originalFrame
++ (UIBezierPath *)bezierPathForStarShapeInRect:(CGRect)originalFrame
 {
-    CGRect frame = [self maximumSquareFrameThatFits:originalFrame];
+    CGRect frame = [self sizeToFitOriginalFrame:originalFrame];
     
     UIBezierPath* bezierPath = [UIBezierPath bezierPath];
-    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.50000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05000 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.67634 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.30729 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.97553 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.39549 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.78532 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.64271 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.79389 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.95451 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.50000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.85000 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.20611 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.95451 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.21468 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.64271 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.02447 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.39549 * CGRectGetHeight(frame))];
-    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.32366 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.30729 * CGRectGetHeight(frame))];
+    // Path starts at the tip of the top point
+    [bezierPath moveToPoint: CGPointMake(CGRectGetMinX(frame) + (0.500 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.050 * CGRectGetHeight(frame)))];
+    // Move down the right side of the top point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.676 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.307 * CGRectGetHeight(frame)))];
+    // Move down and over to the top half of the right top point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.976 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.396 * CGRectGetHeight(frame)))];
+    // Move down to the bottom half of the right top point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.785 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.643 * CGRectGetHeight(frame)))];
+    // Move down to the top half of the right bottom point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.794 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.955 * CGRectGetHeight(frame)))];
+    // Move up  to the bottom half of the right bottom point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.500 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.850 * CGRectGetHeight(frame)))];
+    // Move down to the bottom half of the left bottom point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.206 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.955 * CGRectGetHeight(frame)))];
+    // Move up to the top half of the left bottom point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.215 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.643 * CGRectGetHeight(frame)))];
+    // Move over to the bottom half of the left top point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.025 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.396 * CGRectGetHeight(frame)))];
+    // Move up to the top half of the left top point
+    [bezierPath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + (0.324 * CGRectGetWidth(frame)), CGRectGetMinY(frame) + (0.307 * CGRectGetHeight(frame)))];
+    // Move up to connect the top half of the left top point to the bottom (in this case, left) half of the top point
     [bezierPath closePath];
     
     return bezierPath;
 }
 
-+ (CGRect)maximumSquareFrameThatFits:(CGRect)frame;
++ (UIBezierPath *)bezierPathForCircleShapeInRect:(CGRect)originalFrame {
+    
+    CGRect frame = [self sizeToFitOriginalFrame:originalFrame];
+    
+    // Return the bezierPath sized to our 'best fitting' frame for maximum circle diameter.
+    return [UIBezierPath bezierPathWithOvalInRect:frame];
+}
+
++ (CGRect)sizeToFitOriginalFrame:(CGRect)frame;
 {
-    CGFloat a = MIN(frame.size.width, frame.size.height);
-    return CGRectMake(frame.size.width/2 - a/2, frame.size.height/2 - a/2, a, a);
+    // Determine which side is smaller so we can ensure our shapes fit in the view correctly
+    CGFloat minSize = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame));
+    
+    // Make a new frame out of the original frame.  Set X, Y to the center and use width, height from shortest side (caluclated above)
+    CGRect bestSize =  CGRectMake(CGRectGetWidth(frame)/2 - minSize/2, CGRectGetHeight(frame)/2 - minSize/2, minSize, minSize);
+    
+    return bestSize;
+    
 }
 
 @end

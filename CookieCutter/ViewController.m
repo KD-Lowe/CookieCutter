@@ -31,7 +31,7 @@
 - (IBAction)addPictureButtonSelected:(id)sender {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
         [[[UIAlertView alloc] initWithTitle:@"Error"
-                                    message:@"Cannot access Saved Photos on device :("
+                                    message:@"Cannot access Saved Photos on device :["
                                    delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles: nil] show];
@@ -84,25 +84,21 @@
 }
 
 - (void)addHeartMaskToImage {
-    UIBezierPath *bezzie = [CookieMaskView heartShape:self.photoImageView.frame];
+    UIBezierPath *bezzie = [CookieMaskView bezierPathForHeartShapeInRect:self.photoImageView.bounds];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
     [self.photoImageView.layer setMask:shapeLayer];
 }
 
 - (void)addStarMaskToImage {
-    UIBezierPath *bezzie = [CookieMaskView starShape:self.photoImageView.frame];
+    UIBezierPath *bezzie = [CookieMaskView bezierPathForStarShapeInRect:self.photoImageView.bounds];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
     [self.photoImageView.layer setMask:shapeLayer];
 }
 
 - (void)addCookieMaskToImage {
-    CGRect path = CGRectMake(self.photoImageView.center.x-100.0f,
-                             self.photoImageView.center.y-100.0f,
-                             200.0f,
-                             200.0f);
-    UIBezierPath *bezzie = [UIBezierPath bezierPathWithOvalInRect:path];
+    UIBezierPath *bezzie = [CookieMaskView bezierPathForCircleShapeInRect:self.photoImageView.bounds];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
     [self.photoImageView.layer setMask:shapeLayer];
