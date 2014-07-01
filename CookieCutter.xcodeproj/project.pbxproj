@@ -13,7 +13,6 @@
 		A22AA4DD195D14E70065301E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A22AA4DB195D14E70065301E /* Main.storyboard */; };
 		A22AA4DF195D14E70065301E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A22AA4DE195D14E70065301E /* Images.xcassets */; };
 		A22AA4EB195D14E70065301E /* CookieCutterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A22AA4EA195D14E70065301E /* CookieCutterTests.m */; };
-		A22AA4F5195D1F0D0065301E /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A22AA4F4195D1F0D0065301E /* background.jpg */; };
 		A2DD8A3E1960B9FC00B87E48 /* CookieCutterMasks.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DD8A3D1960B9FC00B87E48 /* CookieCutterMasks.m */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		A22AA4E4195D14E70065301E /* CookieCutterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookieCutterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A22AA4E9195D14E70065301E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A22AA4EA195D14E70065301E /* CookieCutterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CookieCutterTests.m; sourceTree = "<group>"; };
-		A22AA4F4195D1F0D0065301E /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		A2DD8A3C1960B9FC00B87E48 /* CookieCutterMasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieCutterMasks.h; sourceTree = "<group>"; };
 		A2DD8A3D1960B9FC00B87E48 /* CookieCutterMasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookieCutterMasks.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,11 +87,10 @@
 				A22AA4D8195D14E70065301E /* ViewController.h */,
 				A22AA4D9195D14E70065301E /* ViewController.m */,
 				A22AA4DB195D14E70065301E /* Main.storyboard */,
-				A22AA4DE195D14E70065301E /* Images.xcassets */,
-				A22AA4F4195D1F0D0065301E /* background.jpg */,
-				A22AA4D1195D14E70065301E /* Supporting Files */,
 				A2DD8A3C1960B9FC00B87E48 /* CookieCutterMasks.h */,
 				A2DD8A3D1960B9FC00B87E48 /* CookieCutterMasks.m */,
+				A22AA4DE195D14E70065301E /* Images.xcassets */,
+				A22AA4D1195D14E70065301E /* Supporting Files */,
 			);
 			path = CookieCutter;
 			sourceTree = "<group>";
@@ -204,7 +201,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A22AA4F5195D1F0D0065301E /* background.jpg in Resources */,
 				A22AA4DD195D14E70065301E /* Main.storyboard in Resources */,
 				A22AA4DF195D14E70065301E /* Images.xcassets in Resources */,
 			);
