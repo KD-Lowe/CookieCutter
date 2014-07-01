@@ -47,7 +47,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissViewControllerAnimated:YES completion:^{
         self.photoImageView.image = info[UIImagePickerControllerEditedImage];
-//        self.scrollView.contentSize = CGSizeMake(self.photoImageView.image.size.width * 2.0f, self.photoImageView.image.size.height);
+        self.introLabel.hidden = YES;
     }];
 }
 
@@ -88,23 +88,6 @@
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
     [self.photoImageView.layer setMask:shapeLayer];
-    
-    //    CookieMaskView *cookieMask = [[CookieMaskView alloc] initWithFrame:self.photoImageView.frame];
-    //or make it as [imageview.layer setMask:shapeLayer];
-    //and add imageView as subview of whichever view you want. draw the original image
-    //on the imageview in that case
-    //    [self.view addSubview:self.photoImageView]
-    //    UIBezierPath *aPath = [UIBezierPath bezierPath];
-    //    // Set the starting point of the shape.
-    //    [aPath moveToPoint:CGPointMake(0.0, 0.0)];
-    //    // Draw the lines.
-    //    [aPath addLineToPoint:CGPointMake(50.0, 0.0)];
-    //    [aPath addLineToPoint:CGPointMake(50.0, 50.0)];
-    //    [aPath addLineToPoint:CGPointMake(0.0, 50.0)];
-    //    [aPath closePath];
-    //
-    //    [self setClippingPath:aPath :self.photoImageView];
-    //    [self.photoImageView addSubview:self.photoImageView];
 }
 
 - (void)addStarMaskToImage {
@@ -115,7 +98,10 @@
 }
 
 - (void)addCookieMaskToImage {
-    CGRect path = CGRectMake(self.photoImageView.center.x-150.0f, self.photoImageView.center.y-150.0f, 300.0f, 300.0f);
+    CGRect path = CGRectMake(self.photoImageView.center.x-100.0f,
+                             self.photoImageView.center.y-100.0f,
+                             200.0f,
+                             200.0f);
     UIBezierPath *bezzie = [UIBezierPath bezierPathWithOvalInRect:path];
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezzie.CGPath;
@@ -129,6 +115,12 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    if (self.photoImageView.image) {
+        [self segmentControlAction:nil];
+    }
 }
 
 - (IBAction)shareImage:(id)sender {
