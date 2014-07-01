@@ -53,7 +53,7 @@
     photoPicker.delegate = self;
     photoPicker.allowsEditing = YES;
     photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:photoPicker animated:YES completion:NULL];
+    [self showDetailViewController:photoPicker sender:self];
   }
 }
 
@@ -86,7 +86,7 @@
   UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
   [activityViewController setValue:shareText forKey:@"subject"];
   
-  [self presentViewController:activityViewController animated:YES completion:nil];
+  [self showDetailViewController:activityViewController sender:self];
 }
 
 #pragma mark - Private
