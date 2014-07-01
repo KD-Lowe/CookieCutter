@@ -56,7 +56,7 @@
                                                 <segment title="Heart"/>
                                             </segments>
                                             <connections>
-                                                <action selector="segmentControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="vXV-f5-cOX"/>
+                                                <action selector="didChangeCookieMaskSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="ce3-u3-5VE"/>
                                             </connections>
                                         </segmentedControl>
                                     </barButtonItem>

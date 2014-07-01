@@ -35,7 +35,7 @@
 // On rotation, have the mask re-applied to account for the change in width/height sizes
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
   if (self.photoImageView.image) {
-    [self segmentControlAction:nil];
+    [self didChangeCookieMaskSegment:nil];
   }
 }
 
@@ -57,7 +57,7 @@
   }
 }
 
-- (IBAction)segmentControlAction:(id)sender
+- (IBAction)didChangeCookieMaskSegment:(id)sender
 {
   switch(self.cookieControl.selectedSegmentIndex) {
     case 0:
