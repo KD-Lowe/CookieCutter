@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aLE-Fi-eBr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aLE-Fi-eBr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the '+' in the corner!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCT-fB-MLh">
-                                <rect key="frame" x="67" y="242" width="187" height="21"/>
+                                <rect key="frame" x="67" y="219" width="187" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,20 +71,23 @@
                                 <subviews>
                                     <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
                                         <rect key="frame" x="0.0" y="3" width="320" height="454"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Frv-7y-5ue"/>
                                 </connections>
                             </scrollView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MCT-fB-MLh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="242" id="6lD-TC-BEE"/>
+                            <constraint firstItem="MCT-fB-MLh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="219" id="6lD-TC-BEE"/>
                             <constraint firstAttribute="trailing" secondItem="Faq-OQ-Sbi" secondAttribute="trailing" id="AtY-Ve-ieg"/>
                             <constraint firstAttribute="bottom" secondItem="Faq-OQ-Sbi" secondAttribute="bottom" id="CHU-n6-uxQ"/>
                             <constraint firstItem="Faq-OQ-Sbi" firstAttribute="centerX" secondItem="MCT-fB-MLh" secondAttribute="centerX" id="RT9-pf-nME"/>
-                            <constraint firstItem="MCT-fB-MLh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZTD-ay-1BU"/>
+                            <constraint firstItem="MCT-fB-MLh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-22.5" id="ZTD-ay-1BU"/>
                             <constraint firstItem="Faq-OQ-Sbi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sjv-OB-sA4"/>
                         </constraints>
                     </view>
