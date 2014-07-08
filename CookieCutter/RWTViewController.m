@@ -1,17 +1,32 @@
-//
-//  ViewController.m
-//  CookieCutter
-//
-//  Created by Chris Lowe on 6/26/14.
-//  Copyright (c) 2014 Chris Lowe. All rights reserved.
-//
+/*
+ * Copyright (c) 2014 Razeware LLC
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 
 #import "RWTViewController.h"
 #import "RWTCookieCutterMasks.h"
 
 @interface RWTViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel *introLabel;
+@property (strong, nonatomic) IBOutlet UIButton *addPhotoButton;
+@property (strong, nonatomic) IBOutlet UIButton *sharePhotoButton;
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *cookieControl;
 
@@ -23,20 +38,19 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+  
+  NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+  [self.cookieControl setTitleTextAttributes:attributes forState:UIControlStateSelected];
 }
 
 #pragma mark - Orientation Change
 
-// On rotation, have the mask re-applied to account for the change in width/height sizes
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-  if (self.photoImageView.image) {
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+  [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+  [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
     [self didChangeCookieMaskSegment:nil];
-  }
+  }];
 }
 
 #pragma mark - IBActions
@@ -53,7 +67,7 @@
     photoPicker.delegate = self;
     photoPicker.allowsEditing = YES;
     photoPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self showDetailViewController:photoPicker sender:self];
+    [self showViewController:photoPicker sender:self];
   }
 }
 
@@ -61,18 +75,19 @@
 {
   switch(self.cookieControl.selectedSegmentIndex) {
     case 0:
-      [self removeMask];
+      [self applyNoMaskToImage];
       break;
     case 1:
-      [self addCookieMaskToImage];
+      [self applyCookieMaskToImage];
       break;
     case 2:
-      [self addStarMaskToImage];
+      [self applyStarMaskToImage];
       break;
     case 3:
-      [self addHeartMaskToImage];
+      [self applyHeartMaskToImage];
       break;
     default:
+      [self applyNoMaskToImage];
       break;
   }
 }
@@ -81,38 +96,35 @@
   UIImage *imageToSave = [self currentMaskedImage];
   
   NSString *shareText = @"Check out this picture I made in Cookie Cutter!";
-  NSArray *items   = @[shareText,imageToSave];
+  UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[shareText, imageToSave] applicationActivities:nil];
   
-  UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
-  [activityViewController setValue:shareText forKey:@"subject"];
-  
-  [self showDetailViewController:activityViewController sender:self];
+  [self showViewController:activityViewController sender:self];
 }
 
 #pragma mark - Private
 
-- (void)addHeartMaskToImage {
+- (void)applyHeartMaskToImage {
   UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForHeartShapeInRect:self.photoImageView.frame];
   CAShapeLayer *shapeLayer = [CAShapeLayer layer];
   shapeLayer.path = bezle.CGPath;
   [self.photoImageView.layer setMask:shapeLayer];
 }
 
-- (void)addStarMaskToImage {
+- (void)applyStarMaskToImage {
   UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForStarShapeInRect:self.photoImageView.frame];
   CAShapeLayer *shapeLayer = [CAShapeLayer layer];
   shapeLayer.path = bezle.CGPath;
   [self.photoImageView.layer setMask:shapeLayer];
 }
 
-- (void)addCookieMaskToImage {
+- (void)applyCookieMaskToImage {
   UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForCircleShapeInRect:self.photoImageView.frame];
   CAShapeLayer *shapeLayer = [CAShapeLayer layer];
   shapeLayer.path = bezle.CGPath;
   [self.photoImageView.layer setMask:shapeLayer];
 }
 
-- (void)removeMask {
+- (void)applyNoMaskToImage {
   self.photoImageView.layer.mask = nil;
 }
 
@@ -131,7 +143,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
   [picker dismissViewControllerAnimated:YES completion:^{
     self.photoImageView.image = info[UIImagePickerControllerEditedImage];
-    self.introLabel.hidden = YES;
+    self.addPhotoButton.hidden = YES;
   }];
 }
 

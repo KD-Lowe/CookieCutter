@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aLE-Fi-eBr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="x5R-vJ-q0I">
-            <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="aLE-Fi-eBr" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k7E-76-bhb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="38m-Rp-zf8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nQv-Jo-AGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="30" y="-35.492957746478872"/>
-        </scene>
-        <!--View Controller - Cookie Cutter-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RWTViewController" sceneMemberID="viewController">
@@ -30,84 +14,91 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="480" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="372"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-OQ-Sbi">
-                                <rect key="frame" x="0.0" y="372" width="480" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHR-lJ-MjF" userLabel="Container">
+                                <rect key="frame" x="0.0" y="58" width="480" height="366"/>
+                                <subviews>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
+                                        <rect key="frame" x="64" y="7" width="352" height="352"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="c6q-1J-oac" secondAttribute="height" multiplier="1:1" id="klV-vJ-9oq"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="bPp-Dj-SYB"/>
+                                    <constraint firstAttribute="centerY" secondItem="c6q-1J-oac" secondAttribute="centerY" id="S7H-nX-h3F"/>
+                                    <constraint firstItem="c6q-1J-oac" firstAttribute="top" secondItem="EHR-lJ-MjF" secondAttribute="top" constant="7" id="WVK-hZ-iMS"/>
+                                    <constraint firstAttribute="centerX" secondItem="c6q-1J-oac" secondAttribute="centerX" id="Zkb-nR-6n0"/>
+                                    <constraint firstAttribute="bottom" secondItem="c6q-1J-oac" secondAttribute="bottom" constant="7" id="iPX-cr-cDO"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oQf-r6-y74"/>
-                                    <barButtonItem style="plain" id="qP8-UC-lvi">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="csJ-b7-5o4">
-                                            <rect key="frame" x="43" y="11" width="233" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="None"/>
-                                                <segment title="Cookie"/>
-                                                <segment title="Star"/>
-                                                <segment title="Heart"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="didChangeCookieMaskSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="ce3-u3-5VE"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="b7x-w7-hN6"/>
-                                </items>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
-                            <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the '+' in the corner!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCT-fB-MLh">
-                                <rect key="frame" x="50" y="167" width="380" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtu-9B-0ST" userLabel="Add">
+                                <rect key="frame" x="215" y="215" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="DTR-jB-dCb"/>
+                                    <constraint firstAttribute="height" constant="50" id="PAr-si-uzh"/>
+                                </constraints>
+                                <state key="normal" image="cc-add-icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPictureButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WfG-Eh-PzE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MB-de-iT9" userLabel="Share">
+                                <rect key="frame" x="420" y="20" width="40" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bdz-ev-GqX"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZnP-CM-eYN">
+                                <rect key="frame" x="125" y="432" width="231" height="29"/>
+                                <segments>
+                                    <segment title="None"/>
+                                    <segment title="Cookie"/>
+                                    <segment title="Star"/>
+                                    <segment title="Heart"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeCookieMaskSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="iCM-ST-T6y"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Faq-OQ-Sbi" secondAttribute="bottom" id="CGG-eY-G6k"/>
-                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="leading" secondItem="c6q-1J-oac" secondAttribute="leading" id="KYW-tn-G8c"/>
-                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="top" secondItem="c6q-1J-oac" secondAttribute="bottom" id="S0o-1K-gqB"/>
-                            <constraint firstItem="MCT-fB-MLh" firstAttribute="centerX" secondItem="Faq-OQ-Sbi" secondAttribute="centerX" id="YLQ-Gr-KoD"/>
-                            <constraint firstItem="MCT-fB-MLh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="Zlz-tb-V86"/>
-                            <constraint firstItem="c6q-1J-oac" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="baw-SW-XfD"/>
-                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ffh-Af-pJi"/>
-                            <constraint firstAttribute="trailing" secondItem="Faq-OQ-Sbi" secondAttribute="trailing" id="mfM-bc-KcW"/>
-                            <constraint firstItem="Faq-OQ-Sbi" firstAttribute="trailing" secondItem="c6q-1J-oac" secondAttribute="trailing" id="otk-1I-TB6"/>
-                            <constraint firstAttribute="centerY" secondItem="MCT-fB-MLh" secondAttribute="centerY" constant="30.5" id="rRm-fN-chV"/>
+                            <constraint firstItem="EHR-lJ-MjF" firstAttribute="top" secondItem="6MB-de-iT9" secondAttribute="bottom" constant="8" symbolic="YES" id="26T-Ex-Co4"/>
+                            <constraint firstAttribute="trailing" secondItem="6MB-de-iT9" secondAttribute="trailing" constant="20" id="8CY-GP-RvF"/>
+                            <constraint firstAttribute="centerY" secondItem="qtu-9B-0ST" secondAttribute="centerY" constant="0.5" id="DY5-3f-Yum"/>
+                            <constraint firstAttribute="centerX" secondItem="qtu-9B-0ST" secondAttribute="centerX" constant="-0.5" id="P0h-oi-wYD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZnP-CM-eYN" secondAttribute="bottom" constant="20" id="QEO-aG-OVG"/>
+                            <constraint firstItem="EHR-lJ-MjF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YDv-O4-uGd"/>
+                            <constraint firstItem="6MB-de-iT9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="aUZ-fY-COc"/>
+                            <constraint firstItem="EHR-lJ-MjF" firstAttribute="centerX" secondItem="qtu-9B-0ST" secondAttribute="centerX" id="pcu-om-GEz"/>
+                            <constraint firstAttribute="centerX" secondItem="ZnP-CM-eYN" secondAttribute="centerX" constant="-0.5" id="rci-9o-Vwn"/>
+                            <constraint firstItem="ZnP-CM-eYN" firstAttribute="top" secondItem="EHR-lJ-MjF" secondAttribute="bottom" constant="8" symbolic="YES" id="z0E-OM-djs"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Cookie Cutter" id="4cC-Sj-XXD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="MQB-bp-DCt">
-                            <connections>
-                                <action selector="shareImage:" destination="BYZ-38-t0r" id="3pD-7J-EgL"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gpl-Lz-pum">
-                            <connections>
-                                <action selector="addPictureButtonSelected:" destination="BYZ-38-t0r" id="BA1-Mb-tId"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <outlet property="cookieControl" destination="csJ-b7-5o4" id="87h-be-w50"/>
-                        <outlet property="introLabel" destination="MCT-fB-MLh" id="sJl-Tf-l2c"/>
+                        <outlet property="addPhotoButton" destination="qtu-9B-0ST" id="gKl-Jl-wmQ"/>
+                        <outlet property="cookieControl" destination="ZnP-CM-eYN" id="VRi-k9-cuT"/>
                         <outlet property="photoImageView" destination="c6q-1J-oac" id="qb5-F8-vMn"/>
+                        <outlet property="sharePhotoButton" destination="6MB-de-iT9" id="R3J-M5-gD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-35.492957746478872"/>
+            <point key="canvasLocation" x="661" y="-90"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cc-add-icon" width="122" height="122"/>
+    </resources>
 </document>
