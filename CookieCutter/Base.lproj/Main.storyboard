@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -20,20 +20,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHR-lJ-MjF" userLabel="Container">
                                 <rect key="frame" x="0.0" y="58" width="480" height="366"/>
                                 <subviews>
-                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
-                                        <rect key="frame" x="64" y="7" width="352" height="352"/>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="c6q-1J-oac">
+                                        <rect key="frame" x="80" y="23" width="320" height="320"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="c6q-1J-oac" secondAttribute="height" multiplier="1:1" id="klV-vJ-9oq"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="c6q-1J-oac" secondAttribute="centerY" id="S7H-nX-h3F"/>
-                                    <constraint firstItem="c6q-1J-oac" firstAttribute="top" secondItem="EHR-lJ-MjF" secondAttribute="top" constant="7" id="WVK-hZ-iMS"/>
+                                    <constraint firstItem="c6q-1J-oac" firstAttribute="top" secondItem="EHR-lJ-MjF" secondAttribute="top" constant="23" id="WVK-hZ-iMS"/>
                                     <constraint firstAttribute="centerX" secondItem="c6q-1J-oac" secondAttribute="centerX" id="Zkb-nR-6n0"/>
-                                    <constraint firstAttribute="bottom" secondItem="c6q-1J-oac" secondAttribute="bottom" constant="7" id="iPX-cr-cDO"/>
+                                    <constraint firstAttribute="bottom" secondItem="c6q-1J-oac" secondAttribute="bottom" constant="23" id="iPX-cr-cDO"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtu-9B-0ST" userLabel="Add">
@@ -71,18 +70,21 @@
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="EHR-lJ-MjF" firstAttribute="top" secondItem="6MB-de-iT9" secondAttribute="bottom" constant="8" symbolic="YES" id="26T-Ex-Co4"/>
+                            <constraint firstAttribute="centerX" secondItem="EHR-lJ-MjF" secondAttribute="centerX" id="5LB-rd-ers"/>
+                            <constraint firstAttribute="centerX" secondItem="EHR-lJ-MjF" secondAttribute="centerX" id="6nJ-Om-Mo3"/>
                             <constraint firstAttribute="trailing" secondItem="6MB-de-iT9" secondAttribute="trailing" constant="20" id="8CY-GP-RvF"/>
                             <constraint firstAttribute="centerY" secondItem="qtu-9B-0ST" secondAttribute="centerY" constant="0.5" id="DY5-3f-Yum"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EHR-lJ-MjF" secondAttribute="bottom" constant="56" id="LRt-nt-EmZ"/>
                             <constraint firstAttribute="centerX" secondItem="qtu-9B-0ST" secondAttribute="centerX" constant="-0.5" id="P0h-oi-wYD"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZnP-CM-eYN" secondAttribute="bottom" constant="20" id="QEO-aG-OVG"/>
+                            <constraint firstAttribute="centerX" secondItem="EHR-lJ-MjF" secondAttribute="centerX" id="X1H-o7-XcU"/>
                             <constraint firstItem="EHR-lJ-MjF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YDv-O4-uGd"/>
                             <constraint firstItem="6MB-de-iT9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="aUZ-fY-COc"/>
-                            <constraint firstItem="EHR-lJ-MjF" firstAttribute="centerX" secondItem="qtu-9B-0ST" secondAttribute="centerX" id="pcu-om-GEz"/>
+                            <constraint firstAttribute="centerY" secondItem="EHR-lJ-MjF" secondAttribute="centerY" constant="-1" id="hzh-NX-cZa"/>
                             <constraint firstAttribute="centerX" secondItem="ZnP-CM-eYN" secondAttribute="centerX" constant="-0.5" id="rci-9o-Vwn"/>
-                            <constraint firstItem="ZnP-CM-eYN" firstAttribute="top" secondItem="EHR-lJ-MjF" secondAttribute="bottom" constant="8" symbolic="YES" id="z0E-OM-djs"/>
+                            <constraint firstAttribute="centerY" secondItem="EHR-lJ-MjF" secondAttribute="centerY" constant="-1" id="tCY-SF-Uxg"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
