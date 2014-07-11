@@ -118,7 +118,7 @@
 }
 
 - (void)applyCookieMaskToImage {
-  UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForCircleShapeInRect:self.photoImageView.frame];
+  UIBezierPath *bezle = [RWTCookieCutterMasks bezierPathForCookieShapeInRect:self.photoImageView.frame];
   CAShapeLayer *shapeLayer = [CAShapeLayer layer];
   shapeLayer.path = bezle.CGPath;
   [self.photoImageView.layer setMask:shapeLayer];

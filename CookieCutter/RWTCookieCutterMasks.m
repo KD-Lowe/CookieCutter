@@ -143,7 +143,7 @@
   return bezierPath;
 }
 
-+ (UIBezierPath *)bezierPathForCircleShapeInRect:(CGRect)originalFrame {
++ (UIBezierPath *)bezierPathForCookieShapeInRect:(CGRect)originalFrame {
   
   CGRect frame = [self sizeToFitOriginalFrame:originalFrame];
   

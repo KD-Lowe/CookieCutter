@@ -25,5 +25,5 @@
 @interface RWTCookieCutterMasks : NSObject
 + (UIBezierPath *)bezierPathForHeartShapeInRect:(CGRect)originalFrame;
 + (UIBezierPath *)bezierPathForStarShapeInRect:(CGRect)originalFrame;
-+ (UIBezierPath *)bezierPathForCircleShapeInRect:(CGRect)originalFrame;
++ (UIBezierPath *)bezierPathForCookieShapeInRect:(CGRect)originalFrame;
 @end
