@@ -43,6 +43,10 @@
   [self.cookieControl setTitleTextAttributes:attributes forState:UIControlStateSelected];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle {
+  return UIStatusBarStyleLightContent;
+}
+
 #pragma mark - Orientation Change
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
